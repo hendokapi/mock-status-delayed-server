@@ -9,7 +9,7 @@ const app = express()
 app.use(cors())
 app.use(morgan('tiny'))
 
-app.get('/status/:statusCode/delay/:delayInSeconds', (req, res) => {
+app.all('/status/:statusCode/delay/:delayInSeconds', (req, res) => {
 	setTimeout(() => {
 		const statusCode = parseInt(req.params.statusCode)
 		res.status(statusCode)
